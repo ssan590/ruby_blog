@@ -1,0 +1,380 @@
+/*
+ * 네이버 스타일 CSS
+ * 루비온레일즈 학습 블로그용
+ */
+
+/* 기본 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+/* 네이버 브랜드 컬러 */
+:root {
+  --naver-green: #03c75a;
+  --naver-green-hover: #02b351;
+  --naver-dark: #1a1a1a;
+  --naver-gray: #666;
+  --naver-light-gray: #f5f5f5;
+  --naver-border: #e1e5e9;
+  --naver-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더 스타일 */
+.header {
+  background: white;
+  border-bottom: 1px solid var(--naver-border);
+  box-shadow: var(--naver-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--naver-green);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: var(--naver-gray);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+  color: var(--naver-green);
+}
+
+/* 메인 컨테이너 */
+.main-container {
+  max-width: 1200px;
+  margin: 80px auto 0;
+  padding: 20px;
+  min-height: calc(100vh - 80px);
+}
+
+/* 카드 스타일 */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--naver-shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 버튼 스타일 */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--naver-green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--naver-green-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--naver-gray);
+  border: 1px solid var(--naver-border);
+}
+
+.btn-secondary:hover {
+  background: var(--naver-light-gray);
+  color: var(--naver-dark);
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
+/* 폼 스타일 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--naver-dark);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--naver-border);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--naver-green);
+  box-shadow: 0 0 0 3px rgba(3, 199, 90, 0.1);
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* 포스트 목록 */
+.posts-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* 포스트 내용 */
+.post-content {
+  .post-summary {
+    color: var(--naver-gray);
+    margin-bottom: 16px;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+}
+
+.post-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--naver-shadow);
+  padding: 24px;
+  transition: all 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.post-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--naver-dark);
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+
+.post-title:hover {
+  color: var(--naver-green);
+}
+
+.post-summary {
+  color: var(--naver-gray);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #999;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--naver-border);
+}
+
+/* 리스트 스타일 */
+ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.post-actions a {
+  font-size: 12px;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.post-actions .view {
+  color: var(--naver-green);
+}
+
+.post-actions .edit {
+  color: #007bff;
+}
+
+.post-actions .delete {
+  color: #dc3545;
+}
+
+.post-actions a:hover {
+  background: var(--naver-light-gray);
+}
+
+/* 페이지 제목 */
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--naver-dark);
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 알림 메시지 */
+.alert {
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border-left: 4px solid;
+}
+
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  border-left-color: #28a745;
+}
+
+.alert-error {
+  background: #f8d7da;
+  color: #721c24;
+  border-left-color: #dc3545;
+}
+
+.alert-warning {
+  background: #fff3cd;
+  color: #856404;
+  border-left-color: #ffc107;
+}
+
+/* 빈 상태 */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--naver-shadow);
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  color: var(--naver-dark);
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  color: var(--naver-gray);
+  margin-bottom: 24px;
+}
+
+/* 유틸리티 클래스 */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 16px;
+  }
+  
+  .main-container {
+    padding: 16px;
+    margin-top: 70px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .post-actions {
+    flex-wrap: wrap;
+  }
+}

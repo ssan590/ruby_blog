@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="text-center mb-3">
+    <h1 class="page-title">루비온레일즈 학습 블로그</h1>
+    <p class="post-summary">루비온레일즈를 배우면서 만든 간단한 블로그입니다</p>
+  </div>
+
+  <div class="posts-grid mb-3">
+    <div class="card">
+      <h2 class="post-title">블로그 통계</h2>
+      <div class="text-center">
+        <div class="page-title"><%= @total_posts %></div>
+        <div class="post-summary">총 포스트 수</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="post-title">빠른 액션</h2>
+      <div class="post-actions">
+        <%= link_to "새 포스트 작성", new_post_path, class: "btn btn-primary" %>
+        <%= link_to "모든 포스트 보기", posts_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+
+  <% if @recent_posts.any? %>
+    <div class="card">
+      <h2 class="page-title">최근 포스트</h2>
+      <div class="posts-grid">
+        <% @recent_posts.each do |post| %>
+          <div class="post-card">
+            <h3 class="post-title">
+              <%= link_to post.title, post_path(post) %>
+            </h3>
+            <p class="post-summary"><%= post.summary %></p>
+            <div class="post-meta">
+              <span>작성자: <%= post.author %></span>
+              <span><%= post.created_at.strftime("%Y년 %m월 %d일") %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="empty-state">
+      <h3>아직 포스트가 없습니다</h3>
+      <p>첫 번째 포스트를 작성해보세요!</p>
+      <%= link_to "포스트 작성하기", new_post_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div> 

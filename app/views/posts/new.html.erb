@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="mb-2">
+    <%= link_to "← 목록으로 돌아가기", posts_path, class: "btn btn-secondary" %>
+  </div>
+
+  <div class="card">
+    <h1 class="page-title">새 포스트 작성</h1>
+
+    <%= form_with(model: @post, local: true) do |form| %>
+      <% if @post.errors.any? %>
+        <div class="alert alert-error">
+          <h2>
+            <%= pluralize(@post.errors.count, "error") %>가 발생했습니다:
+          </h2>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :title, "제목", class: "form-label" %>
+        <%= form.text_field :title, 
+            class: "form-control",
+            placeholder: "포스트 제목을 입력하세요" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :author, "작성자", class: "form-label" %>
+        <%= form.text_field :author, 
+            class: "form-control",
+            placeholder: "작성자 이름을 입력하세요" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :content, "내용", class: "form-label" %>
+        <%= form.text_area :content, 
+            rows: 10,
+            class: "form-control",
+            placeholder: "포스트 내용을 입력하세요" %>
+      </div>
+
+      <div class="text-right">
+        <%= link_to "취소", posts_path, class: "btn btn-secondary" %>
+        <%= form.submit "포스트 작성", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div> 
